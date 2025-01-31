@@ -15,4 +15,7 @@ Go to the `html` folder and open `index.html`. You can easily change the text an
 These can be adjusted in the `config.lua` file.
 
 
+## Preview
+![alt text](https://i.ibb.co/rKbhC24h/Adobe-Express-file.png)
+
 ![alt text](https://i.ibb.co/nNsJ7QdK/arkyvebanner.png)
