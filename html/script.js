@@ -1,9 +1,3 @@
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-        window.postMessage({ action: "closeSmooth" }, "*");
-    }
-});
-
 window.addEventListener("message", function(event) {
     const TeleportWindow = document.getElementById("tp-window");
     const container = document.getElementById("tp-places-container");
@@ -32,6 +26,7 @@ window.addEventListener("message", function(event) {
             btn.innerText = "Teleport";
 
             btn.addEventListener("click", () => {
+                console.log(`[DEBUG] Sending teleport request for location ${index + 1}`);
                 fetch(`https://${GetParentResourceName()}/teleportPlayer`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -52,7 +47,7 @@ window.addEventListener("message", function(event) {
             fetch(`https://${GetParentResourceName()}/closeUI`, { 
                 method: "POST", 
                 headers: { "Content-Type": "application/json" }, 
-                body: "{}" 
+                body: "{}"
             });
         }, 300);
     }

@@ -24,11 +24,13 @@ RegisterNUICallback("closeSmoothUI", function()
 end)
 
 RegisterNUICallback("teleportPlayer", function(data)
-    local location = Config.TeleportLocations[data.location]
-    if location then
-        SetEntityCoords(PlayerPedId(), location.coords.x, location.coords.y, location.coords.z)
+    local index = tonumber(data.location) 
+    if index and Config.TeleportLocations[index] then
+        local location = Config.TeleportLocations[index]
+        SetEntityCoords(PlayerPedId(), location.coords.x, location.coords.y, location.coords.z, false, false, false, true)
         SetEntityHeading(PlayerPedId(), location.heading or 0.0)
     end
 end)
+
 
 RegisterKeyMapping('toggleTpUi', 'Toggle Teleport UI', 'keyboard', Config.ToggleTpUiKey)
