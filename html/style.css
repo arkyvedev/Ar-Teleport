@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+#tp-window {
+    width: 60%;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px black;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#tp-window.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tp-title {
+    color: white;
+    font-weight: bold;
+}
+
+.close-btn {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tp-places {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tp-place {
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.tp-place img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.tp-place p {
+    color: white;
+    margin: 10px 0;
+}
+
+.tp-btn {
+    background: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
