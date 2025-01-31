@@ -18,4 +18,7 @@ These can be adjusted in the `config.lua` file.
 ## Preview
 ![alt text](https://i.ibb.co/rKbhC24h/Adobe-Express-file.png)
 
+
+##  I hope you enjoy the script, ArkyveDev
+
 ![alt text](https://i.ibb.co/nNsJ7QdK/arkyvebanner.png)
