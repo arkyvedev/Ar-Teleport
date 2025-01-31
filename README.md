@@ -3,9 +3,9 @@ An advanced fivem teleport menu.
 
 ## Features
 - Clean and responsive UI suitable for all screen sizes.
-- Each teleport has an image and corresponding text.
+- Each teleport has an image and text.
 - Customizable keybinds.
-- Easy configuration for both text and images.
+- Easy configuration.
 
 
 ## How to Change Text and Images:
