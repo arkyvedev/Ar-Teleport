@@ -1,6 +1,11 @@
+local isUIOpen = false
+
 RegisterCommand("toggleTpUi", function()
     if not isUIOpen then
-        SendNUIMessage({ action = "open" })
+        SendNUIMessage({ 
+            action = "open", 
+            locations = Config.TeleportLocations
+        })
         SetNuiFocus(true, true)
         isUIOpen = true
     end
@@ -19,21 +24,11 @@ RegisterNUICallback("closeSmoothUI", function()
 end)
 
 RegisterNUICallback("teleportPlayer", function(data)
-    local locations = Config.TeleportLocations[data.location]
-    if locations then
-        SetEntityCoords(PlayerPedId(), locations.x, locations.y, locations.z)
-        SetEntityHeading(PlayerPedId(), locations.heading)
+    local location = Config.TeleportLocations[data.location]
+    if location then
+        SetEntityCoords(PlayerPedId(), location.coords.x, location.coords.y, location.coords.z)
+        SetEntityHeading(PlayerPedId(), location.heading or 0.0)
     end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if IsControlJustReleased(0, Config.ToggleTpUiKey) then
-            ExecuteCommand("toggleTpUi")
-        elseif IsControlJustReleased(0, 322) and isUIOpen then
-            SendNUIMessage({ action = "closeSmooth" })
-            isUIOpen = false
-        end
-    end
-end)
+RegisterKeyMapping('toggleTpUi', 'Toggle Teleport UI', 'keyboard', Config.ToggleTpUiKey)
